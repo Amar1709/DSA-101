@@ -1,12 +1,12 @@
 # Write your MySQL query statement below
 with cte as
 (
-    select e.id,
-    e.name,
-    e.salary,
-    m.salary as mg_salary
-    from Employee e
-    join Employee m on m.id = e.managerId
+    select E.id,
+    E.name,
+    E.salary,
+    M.salary as mg_salary
+    from Employee E, Employee M
+    where E.managerId = M.id
 )
 
 select name as 'Employee'
